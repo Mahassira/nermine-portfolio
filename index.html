@@ -18,7 +18,7 @@
   }
 }
 </script>
-
+  
 <style>
   :root{
     --bg:#51345d;
@@ -187,6 +187,31 @@
   [dir="rtl"] .about-credentials li{ padding-left:0; padding-right:18px; }
   [dir="rtl"] .about-credentials li::before{ left:auto; right:0; }
   [dir="rtl"] .lang-switch{ margin-inline-start:0; margin-inline-end:22px; }
+  /* FORCE ALL TEXT TO SOLID WHITE */
+body,
+body *,
+main *,
+header *,
+footer *,
+.nav *,
+.hero *,
+.stage *,
+.about *,
+.coaching *,
+.proof *,
+.final * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.grad-text {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
 </style>
 </head>
 <body>
