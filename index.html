@@ -78,8 +78,8 @@
   .nav-links{ display:flex; align-items:center; gap:clamp(16px,3vw,36px); font-size:.82rem; letter-spacing:.02em; color:var(--cream-dim); }
   .nav-links a{ position:relative; padding-bottom:2px; transition:color .3s var(--ease); }
   .nav-links a:hover{ color:var(--cream); }
-  .nav-cta{ border:1px solid #47a1a2; padding:9px 20px; border-radius:100px; font-size:.8rem; color:var(--cream); transition:all .4s var(--ease); }
-  .nav-cta:hover{ background:rgba(71,161,162,.18); border-color:#57b4b5; }
+  .nav-cta{ display:inline-flex; align-items:center; justify-content:center; text-align:center; line-height:1; background:#47a1a2; border:1px solid #47a1a2; padding:9px 20px; border-radius:100px; font-size:.8rem; color:#ffffff; transition:all .4s var(--ease); }
+  .nav-cta:hover{ background:#57b4b5; border-color:#57b4b5; }
   @media(max-width:760px){ .nav-links a:not(.nav-cta){ display:none; } }
 
   /* ---------- section scaffolding ---------- */
@@ -117,7 +117,7 @@
   .stage-index{ font-family:var(--sans); font-size:.8rem; letter-spacing:.12em; color:var(--cyan); opacity:1; text-shadow:var(--text-shadow); }
   .stage-name{ font-family:var(--sans); font-size:.8rem; letter-spacing:.14em; color:var(--cream-dim); text-transform:uppercase; margin-top:6px; text-shadow:var(--text-shadow); }
   .stage-line{ font-family:var(--serif); font-weight:400; font-size:clamp(1.9rem,3.4vw,2.5rem); line-height:1.25; margin:18px auto 0; max-width:16ch; filter:none; opacity:1; text-shadow:var(--text-shadow); }
-  .stage-sub{ margin:14px auto 0; font-size:1rem; line-height:1.5; color:var(--cream-dim); max-width:30ch; filter:none; opacity:1; text-shadow:var(--text-shadow); }
+  .stage-sub{ margin:14px auto 0; font-family:var(--serif); font-weight:400; font-size:clamp(1.6rem,4vw,2.6rem); line-height:1.3; color:#ffffff; max-width:22ch; filter:none; opacity:1; text-shadow:var(--text-shadow); }
 
   /* ---------- about ---------- */
   .about{ padding:16vh 0; }
@@ -134,8 +134,8 @@
   .about h2{ font-family:var(--serif); font-weight:400; font-size:clamp(1.9rem,3.6vw,2.7rem); margin-top:16px; max-width:16ch; text-shadow:var(--text-shadow); }
   .about p{ margin-top:22px; font-size:1.05rem; line-height:1.75; color:var(--cream-dim); max-width:46ch; text-shadow:var(--text-shadow); }
   .about-credentials{ margin-top:32px; display:flex; flex-direction:column; gap:12px; }
-  .about-credentials li{ font-size:.92rem; color:var(--cream-dim); padding-left:18px; position:relative; text-shadow:var(--text-shadow); }
-  .about-credentials li::before{ content:''; position:absolute; left:0; top:.6em; width:7px; height:1px; background:var(--cyan); }
+  .about-credentials li{ font-size:.92rem; color:var(--cream-dim); position:relative; text-shadow:var(--text-shadow); }
+  .about-credentials li::before{ content:none; }
 
   /* ---------- coaching ---------- */
   .coaching{ padding:14vh 0; }
@@ -192,48 +192,43 @@
   .lang-sep{ opacity:.4; font-size:.7rem; }
   .section-note{ text-align:center; color:var(--cream-dim); font-family:var(--serif); font-size:1.05rem; line-height:1.6; max-width:52ch; margin:5vh auto 0; text-shadow:var(--text-shadow); }
   .testimonials.is-single{ grid-template-columns:1fr; max-width:560px; margin:0 auto; }
-  [dir="rtl"] .about-credentials li{ padding-left:0; padding-right:18px; }
-  [dir="rtl"] .about-credentials li::before{ left:auto; right:0; }
+  [dir="rtl"] .about-credentials li{ }
+  
   [dir="rtl"] .lang-switch{ margin-inline-start:0; margin-inline-end:22px; }
+</style>
 
-  /* ---------- text color: white only ---------- */
-  body,
-  body a,
-  body button,
-  body .nav-links,
-  body .nav-links a,
-  body .nav-cta,
-  body .hero-line,
-  body .hero-sub,
-  body .btn,
-  body .scroll-cue,
-  body .journey-intro .eyebrow,
-  body .journey-intro h2,
-  body .stage-index,
-  body .stage-name,
-  body .stage-line,
-  body .stage-sub,
-  body .about-eyebrow,
-  body .about h2,
-  body .about p,
-  body .about-credentials li,
-  body .coaching-head h2,
-  body .coaching-name,
-  body .coaching-desc,
-  body .coaching-link,
-  body .proof-kicker,
-  body .testimonial p,
-  body .testimonial .t-name,
-  body .final-line,
-  body .footer-links,
-  body .footer-links a,
-  body .footer-note,
-  body .lang-btn,
-  body .section-note {
+<style id="all-text-white">
+  html, body,
+  body *, body *::before, body *::after {
+    color: #ffffff !important;
+  }
+
+  .grad-text {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
   }
+
+  .scroll-cue::after {
+    background: #ffffff !important;
+  }
+
+  svg {
+    color: #ffffff !important;
+  }
+
+  svg * {
+    stroke: #ffffff !important;
+  }
+
+  button, input, textarea, select,
+  ::placeholder {
+    color: #ffffff !important;
+  }
 </style>
+
 </head>
 <body>
 
@@ -265,21 +260,18 @@
       <p class="hero-line grad-text"
          data-en="What if the ideal life you're looking for begins with understanding the life you're currently living?"
          data-ar="ماذا لو كانت الحياة المثالية التي تبحث عنها تبدأ من فهم الحياة التي تعيشها حاليًا؟">What if the ideal life you're looking for begins with understanding the life you're currently living?</p>
-      <p class="hero-sub"
-         data-en="I'm Nermine El-Behery, a Life &amp; Relationship Coach."
-         data-ar="أنا نرمين البحيري، مدربة حياة وعلاقات.">I'm Nermine El-Behery, a Life &amp; Relationship Coach.</p>
     </div>
     <div class="hero-cta">
       <a href="#journey" class="btn btn--primary" data-en="Begin Your Journey" data-ar="ابدأ رحلتك">Begin Your Journey</a>
       <a href="#coaching" class="btn btn--ghost" data-en="Explore Coaching" data-ar="استكشف التدريب">Explore Coaching</a>
     </div>
-    <div class="scroll-cue" data-en="Scroll" data-ar="مرر لأسفل">Scroll</div>
+    <div class="scroll-cue" data-en="" data-ar="">Scroll</div>
   </section>
 
   <!-- JOURNEY INTRO -->
   <section id="journey">
     <div class="wrap journey-intro">
-      <span class="eyebrow" data-en="The Journey" data-ar="الرحلة">The Journey</span>
+      <span class="eyebrow" data-en="The Journey" data-ar="">The Journey</span>
       <h2 class="grad-text"
           data-en-html="Maybe you don't need more answers.<br>You need clear explanations."
           data-ar-html="ربما لا تحتاج إلى إجابات أخرى.<br>بل تحتاج إلى تفسيرات واضحة.">Maybe you don't need more answers.<br>You need clear explanations.</h2>
@@ -289,8 +281,6 @@
       <div class="stage" data-stage="0">
         <div class="stage-inner">
           <div class="stage-index">01</div>
-          <div class="stage-name" data-en="SEE" data-ar="أن ترى">SEE</div>
-          <h3 class="stage-line grad-text" data-en="Start with what is true." data-ar="ابدأ بما هو حقيقي.">Start with what is true.</h3>
           <p class="stage-sub" data-en="Before you change your life, you have to be willing to see it clearly." data-ar="قبل أن تغيّر حياتك، عليك أن تكون مستعدًا لرؤيتها بوضوح.">Before you change your life, you have to be willing to see it clearly.</p>
         </div>
       </div>
@@ -298,8 +288,6 @@
       <div class="stage" data-stage="1">
         <div class="stage-inner">
           <div class="stage-index">02</div>
-          <div class="stage-name" data-en="UNDERSTAND" data-ar="أن تفهم">UNDERSTAND</div>
-          <h3 class="stage-line grad-text" data-en="Look beneath the pattern." data-ar="انظر إلى ما هو أعمق من التكرار.">Look beneath the pattern.</h3>
           <p class="stage-sub" data-en="The beliefs, values and needs behind your choices shape the life you experience." data-ar="المعتقدات والقيم والاحتياجات خلف خياراتك هي التي تصنع الحياة التي تعيشها.">The beliefs, values and needs behind your choices shape the life you experience.</p>
         </div>
       </div>
@@ -307,8 +295,6 @@
       <div class="stage" data-stage="2">
         <div class="stage-inner">
           <div class="stage-index">03</div>
-          <div class="stage-name" data-en="CLARIFY" data-ar="أن توضّح">CLARIFY</div>
-          <h3 class="stage-line grad-text" data-en="Know what you really want." data-ar="اعرف ما تريده فعلاً.">Know what you really want.</h3>
           <p class="stage-sub" data-en="Not what's expected of you — what you actually want, for your life, your relationships, your work." data-ar="ليس ما يُتوقع منك، بل ما تريده أنت فعلاً — لحياتك، لعلاقاتك، ولعملك.">Not what's expected of you — what you actually want, for your life, your relationships, your work.</p>
         </div>
       </div>
@@ -316,8 +302,6 @@
       <div class="stage" data-stage="3">
         <div class="stage-inner">
           <div class="stage-index">04</div>
-          <div class="stage-name" data-en="CHOOSE" data-ar="أن تختار">CHOOSE</div>
-          <h3 class="stage-line grad-text" data-en="Your choices shape the life you build." data-ar="اختياراتك هي التي تصنع شكل حياتك.">Your choices shape the life you build.</h3>
           <p class="stage-sub" data-en="The same mindset, applied again, tends to create the same results." data-ar="نفس طريقة التفكير، إذا تكررت، غالبًا ما تصنع نفس النتيجة.">The same mindset, applied again, tends to create the same results.</p>
         </div>
       </div>
@@ -326,17 +310,14 @@
         <div class="stage-inner">
           <div class="stage-index">05</div>
           <div class="stage-name" data-en="DREAM · PLAN · DO" data-ar="احلم · خطّط · نفّذ">DREAM · PLAN · DO</div>
-          <h3 class="stage-line grad-text" data-en="Turn clarity into movement." data-ar="حوّل الوضوح إلى خطوة فعلية.">Turn clarity into movement.</h3>
-          <p class="stage-sub" data-en="Dream what you want. Plan it into a real goal. Do the steps, and stay accountable." data-ar="احلم بما تريده. حوّله إلى هدف واضح، ونفّذ خطواته، وحاسب نفسك عليها.">Dream what you want. Plan it into a real goal. Do the steps, and stay accountable.</p>
+          <p class="stage-sub" data-en="Dream what you want. Plan it into a clear goal, and follow through, holding yourself accountable." data-ar="احلم بما تريده. خطط إلى هدف واضح، ونفّذ خطواته، وحاسب نفسك عليها.">Dream what you want. Plan it into a clear goal, and follow through, holding yourself accountable.</p>
         </div>
       </div>
 
       <div class="stage" data-stage="5">
         <div class="stage-inner">
           <div class="stage-index">06</div>
-          <div class="stage-name" data-en="BALANCE" data-ar="أن تتوازن">BALANCE</div>
-          <h3 class="stage-line grad-text" data-en="Build a life that feels like yours." data-ar="ابنِ حياة تشعر فعلاً أنها حياتك.">Build a life that feels like yours.</h3>
-          <p class="stage-sub" data-en="Not everything under control — just known, chosen, and moving toward what matters." data-ar="التوازن ليس أن يكون كل شيء تحت السيطرة، بل أن تعرف نفسك، وتختار بوعي، وتتحرك نحو ما يهمك.">Not everything under control — just known, chosen, and moving toward what matters.</p>
+          <p class="stage-sub" data-en="Balance isn't about having everything under control — it's about knowing yourself, choosing consciously, and moving toward what matters." data-ar="التوازن ليس أن يكون كل شيء تحت السيطرة، بل أن تعرف نفسك، وتختار بوعي، وتتحرك نحو ما يهمك.">Balance isn't about having everything under control — it's about knowing yourself, choosing consciously, and moving toward what matters.</p>
         </div>
       </div>
     </div>
@@ -378,7 +359,7 @@
   <!-- WHEN LIFE STOPS MAKING SENSE -->
   <section id="when-life-stops">
     <div class="wrap" style="text-align:center;">
-      <span class="about-eyebrow" data-en="When life stops making sense" data-ar="عندما تفقد الحياة معناها">When life stops making sense</span>
+      <span class="about-eyebrow" data-en="When life stops making sense" data-ar="">When life stops making sense</span>
     </div>
     <div class="wrap">
       <div class="coaching-list">
@@ -406,7 +387,7 @@
   <section id="choices">
     <div class="wrap" style="text-align:center;">
       <span class="about-eyebrow" data-en="Choices have consequences" data-ar="لكل اختيار نتيجة">Choices have consequences</span>
-      <p class="section-note" data-en="Your choices shape the quality of your life." data-ar="خياراتك هي التي تحدد جودة حياتك.">Your choices shape the quality of your life.</p>
+      <p class="section-note" data-en="Your choices shape the quality of your life." data-ar="">Your choices shape the quality of your life.</p>
       <p class="section-note" data-en="If the result isn't what you want:" data-ar="إن لم تكن النتيجة كما تريد:">If the result isn't what you want:</p>
     </div>
     <div class="wrap">
@@ -547,8 +528,8 @@
       </div>
     </div>
     <p class="wrap footer-note"
-       data-en="© 2026 Nermine El-Behery. Brand copy and positioning provided and verified by the brand. Client testimonials shown here are illustrative placeholders — real client stories will appear here."
-       data-ar="© 2026 نرمين البحيري. محتوى العلامة التجارية وصياغتها مُقدَّمة وموثّقة من الجهة نفسها. آراء العملاء المعروضة هنا نموذجية فقط، وستُستبدل بقصص عملاء حقيقية.">© 2026 Nermine El-Behery. Brand copy and positioning provided and verified by the brand. Client testimonials shown here are illustrative placeholders — real client stories will appear here.</p>
+       data-en="© 2026 Nermine El-Behery. All rights reserved. All website copy and content are currently under review and have not yet received final approval from Nermine El-Behery."
+       data-ar="© 2026 نرمين البحيري. جميع الحقوق محفوظة. جميع محتويات الموقع قيد المراجعة حاليًا ولم تحصل بعد على الموافقة النهائية من نرمين البحيري.">© 2026 Nermine El-Behery. All rights reserved. All website copy and content are currently under review and have not yet received final approval from Nermine El-Behery.</p>
   </footer>
 
 </main>
