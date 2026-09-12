@@ -173,11 +173,21 @@
   /* ---------- proof ---------- */
   .proof{ padding:14vh 0; }
   .proof-kicker{ text-align:center; font-size:.8rem; letter-spacing:.1em; color:var(--cream-dim); text-transform:uppercase; margin-bottom:6vh; text-shadow:var(--text-shadow); }
-  .testimonials{ display:grid; grid-template-columns:1fr; gap:26px; }
-  @media(min-width:800px){ .testimonials{ grid-template-columns:repeat(3,1fr); } }
-  .testimonial{ padding:32px 28px; border:1px solid var(--line); border-radius:2px; background:#ffffff; }
-  .testimonial p{ font-family:var(--serif); font-size:1.15rem; line-height:1.55; text-shadow:var(--text-shadow); }
-  .testimonial .t-name{ margin-top:20px; font-size:.82rem; color:var(--cyan); letter-spacing:.03em; text-shadow:var(--text-shadow); }
+  .testimonials-scroll{
+    display:flex; gap:22px; overflow-x:auto; padding:1vh clamp(20px,6vw,56px) 3vh;
+    scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;
+  }
+  .testimonials-scroll::-webkit-scrollbar{ height:6px; }
+  .testimonials-scroll::-webkit-scrollbar-thumb{ background:rgba(50,80,86,.25); border-radius:10px; }
+  .testimonial{
+    flex:0 0 auto; width:320px; scroll-snap-align:start;
+    padding:32px 26px; border:1px solid var(--line); border-radius:10px; background:#ffffff;
+    box-shadow:0 12px 30px rgba(50,80,86,.06);
+  }
+  .testimonial-num{ font-family:var(--serif); font-size:2.4rem; color:#e7cdea; line-height:1; margin-bottom:10px; }
+  .testimonial p{ font-family:var(--serif); font-size:1.05rem; line-height:1.6; color:#325056; }
+  .testimonial .t-name{ margin-top:20px; font-size:.82rem; color:var(--cyan); letter-spacing:.03em; }
+  @media(max-width:640px){ .testimonial{ width:260px; } }
 
   /* ---------- final ---------- */
   .final{ min-height:90vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:14vh 20px; }
@@ -457,13 +467,38 @@
 
   <!-- PROOF -->
   <section class="proof" id="proof">
-    <div class="wrap">
+    <div class="wrap" style="text-align:center;">
       <p class="proof-kicker" data-en="Client stories" data-ar="قصص العملاء">Client stories</p>
-      <div class="testimonials is-single">
+    </div>
+    <div class="testimonials-scroll wrap">
         <div class="testimonial">
-          <p data-en="Real client stories will appear here." data-ar="ستظهر هنا قصص عملاء حقيقية قريبًا.">Real client stories will appear here.</p>
+          <div class="testimonial-num">01</div>
+          <p data-en="Because I've genuinely changed so much, and I feel so much more at ease than before. My life has truly changed, and thank God, I've come to love myself — my strengths and my flaws. I've also become much calmer in how I react." data-ar="لأن فعلًا أنا اتغيرت كتير، وارتحت كتير جدًا عن الأول، وحياتي حقيقي اتغيرت، وبقيت بحب نفسي الحمد لله بمميزاتي وعيوبِي، وبقيت أهدى كتير كمان في ردود أفعالي.">Because I've genuinely changed so much, and I feel so much more at ease than before. My life has truly changed, and thank God, I've come to love myself — my strengths and my flaws. I've also become much calmer in how I react.</p>
         </div>
-      </div>
+        <div class="testimonial">
+          <div class="testimonial-num">02</div>
+          <p data-en="Thanks ya Nermine a lot for all of what u do. I know u say it's ur job, but u really make a difference. Many times I come feeling bad and by the end of the session I feel good about myself and learn from u." data-ar="شكرًا يا نرمين جدًا على كل اللي بتعمليه. أعرف إنك بتقولي إنها شغلانتك، بس إنتِ فعلاً بتعملي فرق حقيقي. أوقات كتير بجي وأنا حاسة إني تعبانة، وفي آخر الجلسة بحس إني كويسة مع نفسي وبتعلم منك.">Thanks ya Nermine a lot for all of what u do. I know u say it's ur job, but u really make a difference. Many times I come feeling bad and by the end of the session I feel good about myself and learn from u.</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-num">03</div>
+          <p data-en="You have opened my eyes to things about myself and given me hope to develop myself &amp; my life positively! I could not do this alone, you have shown me the way and I am very grateful." data-ar="فتحتِ عنيّا على حاجات كتير في نفسي، وديتيني أمل إني أطوّر نفسي وحياتي بشكل إيجابي! ما كنتش أقدر أعمل ده لوحدي، إنتِ اللي وريتيني الطريق، وأنا ممتنّة جدًا.">You have opened my eyes to things about myself and given me hope to develop myself &amp; my life positively! I could not do this alone, you have shown me the way and I am very grateful.</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-num">04</div>
+          <p data-en="I had been struggling with a really big issue for 32 years. In one of your videos, you talked about a specific approach to a specific topic. I applied it word for word, and my problem was resolved with complete ease." data-ar="أنا كنت بعاني من مشكلة كبيرة قوي مدة 32 سنة، وفي فيديو ليكي اتكلمتي فيه على طريقة معينة في موضوع معين. أنا طبقتها حرفيًا ومشكلتي النفسية اتحلت بسهولة تامة.">I had been struggling with a really big issue for 32 years. In one of your videos, you talked about a specific approach to a specific topic. I applied it word for word, and my problem was resolved with complete ease.</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-num">05</div>
+          <p data-en="You're truly beautiful, and every time I go through a problem or fall down, your words give me the motivation to get back up again. May God place everything you do in your record of good deeds. 🤍" data-ar="إنتِ جميلة أوي، وكل فترة لما بيحصلي مشكلة أو أقع، بمعنى أصح، كلامك بيديني دافع إني أقوم تاني. وربنا يجعل كل اللي بتعمليه ده في ميزان حسناتك. 🤍">You're truly beautiful, and every time I go through a problem or fall down, your words give me the motivation to get back up again. May God place everything you do in your record of good deeds. 🤍</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-num">06</div>
+          <p data-en="Thank you for helping me understand that respecting one's husband matters, and that with the changing generations, being combative isn't the answer. Thank you for taking on a path that isn't easy — it's the right one — and God willing, you'll be a light within it." data-ar="شكرًا لأنك بتفهميني إن احترام الزوج مهم، وإنه مع تغيير الأجيال الندية مش الحل. شكرًا إنك واخدة طريق مش سهل، هو الأصل، وبإذن الله تكوني مصباح فيه.">Thank you for helping me understand that respecting one's husband matters, and that with the changing generations, being combative isn't the answer. Thank you for taking on a path that isn't easy — it's the right one — and God willing, you'll be a light within it.</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-num">07</div>
+          <p data-en="I think you are the greatest woman alive! 😍❤️ You compassionately &amp; skillfully uncovered my blocks to move forward &amp; helped me to discover which values &amp; beliefs were truly important to me. You have opened my eyes to things about myself and given me hope to develop myself &amp; my life positively!" data-ar="أعتقد إنك أعظم امرأة على الإطلاق! 😍❤️ بكل رحمة ومهارة كشفتِ العوائق اللي كانت بتمنعني من التقدم، وساعدتيني أكتشف القيم والمعتقدات اللي فعلاً مهمة بالنسبة لي. فتحتِ عنيّا على حاجات كتير في نفسي، وديتيني أمل إني أطوّر نفسي وحياتي بشكل إيجابي!">I think you are the greatest woman alive! 😍❤️ You compassionately &amp; skillfully uncovered my blocks to move forward &amp; helped me to discover which values &amp; beliefs were truly important to me. You have opened my eyes to things about myself and given me hope to develop myself &amp; my life positively!</p>
+        </div>
     </div>
   </section>
 
